@@ -11,7 +11,7 @@ java_import java.util.Properties
 
 TOPIC_FAST_MESSAGES = "/sample-stream:fast-messages"
 
-props = Resources.getResource("producer.props").openStream()
+props = Resources.get_resource("producer.props").open_stream()
 properties = Properties.new
 properties.load(props)
 producer = KafkaProducer.new(properties)

@@ -14,12 +14,12 @@ import java.util.Properties
 
 TOPIC_FAST_MESSAGES = "/sample-stream:fast-messages"
 
-props = Resources.getResource("consumer.props").openStream()
+props = Resources.get_resource("consumer.props").open_stream()
 properties = Properties.new
 properties.load(props)
 consumer = KafkaConsumer.new(properties)
 
-consumer.subscribe(Arrays.asList(TOPIC_FAST_MESSAGES))
+consumer.subscribe(Arrays.as_list(TOPIC_FAST_MESSAGES))
 timeouts = 0
 loop do
   records = consumer.poll(200)

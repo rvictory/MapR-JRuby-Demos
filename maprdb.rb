@@ -18,21 +18,21 @@ java_import org.ojai.store.QueryCondition
 
 tableName = "users"
 table = nil
-if (!MapRDB.tableExists(tableName))
+if (!MapRDB.table_exists?(tableName))
   puts "Table Doesn't exist, creating"
-  table = MapRDB.createTable(tableName)
+  table = MapRDB.create_table(tableName)
 else
   puts "Table exists"
-  table = MapRDB.getTable(tableName)
+  table = MapRDB.get_table(tableName)
 end
 
-document = MapRDB.newDocument()
+document = MapRDB.new_document
 .set("_id", "jdoe")
 .set("first_name", "John")
 .set("last_name", "Doe")
 .set("dob", ODate.parse("1970-06-23"))
 
-table.insertOrReplace(document)
+table.insert_or_replace(document)
 
-record = table.findById("jdoe")
+record = table.find_by_id("jdoe")
 puts record.inspect
